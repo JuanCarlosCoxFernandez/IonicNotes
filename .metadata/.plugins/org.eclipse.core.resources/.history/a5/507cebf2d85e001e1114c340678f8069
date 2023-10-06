@@ -1,0 +1,48 @@
+package com.juancarlos.backend.entity.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.juancarlos.backend.entity.dao.IDiaryDao;
+import com.juancarlos.backend.entity.models.Diary;
+
+@Service
+public class DiaryServiceImpl implements IDiaryService{
+
+	@Autowired
+	private IDiaryDao diaryDao;
+	
+	@Override
+	public Diary get(long id) {
+		return diaryDao.findById(id).get();
+	}
+
+	@Override
+	public List<Diary> getAll() {
+		return (List<Diary>) diaryDao.findAll();
+	}
+
+	@Override
+	public void post(Diary task) {
+		diaryDao.save(task);
+		
+	}
+
+	@Override
+	public void put(Diary task, long id) {
+		diaryDao.findById(id).ifPresent((x)->{
+			task.setId(id);
+			diaryDao.save(task);
+		});
+		
+	}
+
+	@Override
+	public void delete(long id) {
+		diaryDao.deleteById(id);
+		
+	}
+
+}

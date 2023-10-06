@@ -1,0 +1,59 @@
+package com.juancarlos.backend.entity.models;
+
+import java.io.Serializable;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="task")
+public class Diary implements Serializable{
+	private static final long serialVersionUID= 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long idTask;
+	
+	private String TaskTitle;
+	
+	private String TaskContent;
+
+	public long getIdTask() {
+		return idTask;
+	}
+
+	public void setIdTask(int idTask) {
+		this.idTask = idTask;
+	}
+
+	public String getTaskTitle() {
+		return TaskTitle;
+	}
+
+	public void setTaskTitle(String TaskTitle) {
+		this.TaskTitle = TaskTitle;
+	}
+
+	public String getTaskContent() {
+		return TaskContent;
+	}
+
+	public void setTaskContent(String TaskContent) {
+		this.TaskContent = TaskContent;
+	}
+
+	public Diary(String TaskTitle, String TaskContent) {
+		super();
+		this.TaskTitle = TaskTitle;
+		this.TaskContent = TaskContent;
+	}
+	
+	
+	public Diary() {
+		
+	}
+	
+}
