@@ -91,6 +91,17 @@ For the instalation of this proyect it´s recommendable to look the next steps.
 ### Prerequisites
 
 This are the things you will need in order to create this proyect.
+
+*The DataBase:
+  CREATE DATABASE db_diary;
+
+  USE db_diary;
+  
+  CREATE TABLE task (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      task_title VARCHAR(45) NOT NULL,
+      task_content longtext NOT NULL,
+  );
 * Install NodeJS and JDK 17
 * npm install -g @ionic/cli
 * ionic serve (to run the proyect)
